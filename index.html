@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서 관리</title>
-    
+    <style>
+        /* 데스크톱 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* 모바일 스타일 - 화면 너비가 768px 이하인 경우 */
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+            th, td {
+                padding: 6px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>도서 관리</h1>
@@ -40,12 +63,8 @@
             <th>출판년도3</th>
             <th>ISBN3</th>
         </tr>
-        
-        
     </table>
 
     <a href="add.html">도서 추가</a>
-
-
 </body>
 </html>
