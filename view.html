@@ -4,47 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서 관리</title>
-    <style>
-   
-        body {
-            font-size: 16px;
-        }
+    
+    <link rel="stylesheet" type="text/css" href="my.css">
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 5px 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-       
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            li {
-                margin: 5px 0;
-            }
-
-            button {
-                padding: 4px 8px;
-            }
-        }
-    </style>
 </head>
 <body>
     <h1>도서 관리</h1>
@@ -57,13 +19,17 @@
         function confirmDelete(title) {
             const confirmDelete = confirm(`"${title}"을(를) 삭제할까요?`);
             if (confirmDelete) {
+                
                 alert(`"${title}"이(가) 삭제되었습니다.`);
+               
             }
         }
 
+        
         const urlParams = new URLSearchParams(window.location.search);
         const category = urlParams.get("category");
 
+        
         const bookData = [
             {
                 category: "도서명",
@@ -89,8 +55,10 @@
             },
         ];
 
+      
         const selectedCategoryData = bookData.find(item => item.category === category);
 
+        
         if (selectedCategoryData) {
             const list = document.createElement("ul");
             selectedCategoryData.data.forEach(item => {
@@ -108,6 +76,7 @@
             });
             document.body.appendChild(list);
         } else {
+       
             const message = document.createElement("p");
             message.textContent = "선택한 카테고리의 데이터를 찾을 수 없습니다.";
             document.body.appendChild(message);

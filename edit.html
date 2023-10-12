@@ -4,72 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서 수정</title>
-    <style>
-        /* 데스크톱 스타일 */
-        body {
-            font-size: 16px;
-        }
-        
-        .form-container {
-            margin: 20px;
-        }
+    <link rel="stylesheet" type="text/css" href="my.css">
 
-        /* 모바일 스타일 - 화면 너비가 768px 이하인 경우 */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-            
-            .form-container {
-                margin: 10px;
-            }
-        }
-    </style>
+
 </head>
 <body>
     <h1>도서 수정</h1>
 
     <script>
         function confirmUpdate() {
-            const confirmUpdate = confirm("게시물을 수정할까요?");
-            if (confirmUpdate) {
-                const updatedValue = document.getElementById("updatedValue").value.trim();
+    const confirmUpdate = confirm("게시물을 수정할까요?");
+    if (confirmUpdate) {
+        const updatedValue = document.getElementById("updatedValue").value.trim(); 
 
-                if (!updatedValue) {
-                    alert("수정할 항목을 입력하세요.");
-                    return false;
-                }
-
-                alert(`도서가 수정되었습니다.`);
-            }
+        if (!updatedValue) {
+            alert("수정 할 항목을 입력하세요.");
+            return false; 
         }
 
+        alert(`도서가 수정되었습니다.`);
+        
+    }
+}
+    
         const urlParams = new URLSearchParams(window.location.search);
         const bookTitle = urlParams.get("title");
 
+        
         if (bookTitle) {
+         
             const labelBefore = document.createElement("p");
             labelBefore.textContent = `수정 전: ${bookTitle}`;
             document.body.appendChild(labelBefore);
 
+          
             const input = document.createElement("input");
             input.type = "text";
             input.id = "updatedValue";
             input.name = "updatedValue";
 
+         
             const formContainer = document.createElement("div");
             formContainer.classList.add("form-container");
 
+        
             const labelAfter = document.createElement("label");
             labelAfter.textContent = "수정 후:";
             labelAfter.for = "updatedValue";
 
+            
             const updateButton = document.createElement("button");
             updateButton.textContent = "수정";
             updateButton.type = "button";
-            updateButton.classList.add("update-button");
+            updateButton.classList.add("update-button"); 
             updateButton.addEventListener("click", confirmUpdate);
 
+          
             const formGroup = document.createElement("div");
             formGroup.classList.add("form-group");
             formGroup.appendChild(labelAfter);
@@ -80,6 +70,7 @@
 
             document.body.appendChild(formContainer);
         } else {
+            
             const message = document.createElement("p");
             message.textContent = "선택한 도서 정보를 찾을 수 없습니다.";
             document.body.appendChild(message);

@@ -4,35 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서 관리</title>
-    <style>
-        /* 데스크톱 스타일 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        /* 모바일 스타일 - 화면 너비가 768px 이하인 경우 */
-        @media (max-width: 768px) {
-            table {
-                font-size: 14px;
-            }
-            th, td {
-                padding: 6px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="my.css">
 </head>
 <body>
+    
+    
+    
     <h1>도서 관리</h1>
 
-    <table>
+    <table class="table">
         <tr>
             <td><a href="view.html?category=도서명">도서명</a></td>
             <td><a href="view.html?category=저자">저자</a></td>
@@ -63,6 +43,7 @@
             <th>출판년도3</th>
             <th>ISBN3</th>
         </tr>
+        
     </table>
 
     <a href="add.html">도서 추가</a>
