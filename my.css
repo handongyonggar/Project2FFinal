@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+
 /* Bootstrap Override: Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
     margin-bottom: 0;
@@ -129,15 +129,5 @@ input[type="submit"] {
   }
 
  
-}
-
-/* 모바일 스타일 */
-@media (max-width: 768px) {
-   
-   
-
-
-
-    }
 
   
