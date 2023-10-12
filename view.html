@@ -1,11 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>도서 관리</title>
+    <!-- 이곳에 스타일시트를 링크할 수 있습니다 (CSS) -->
 </head>
 <body>
-    
+    <h1>도서 관리</h1>
+
+    <script>
+        function editBook(title) {
+            window.location.href = `edit.html?title=${title}`;
+        }
+
+        function confirmDelete(title) {
+            const confirmDelete = confirm(`"${title}"을(를) 삭제할까요?`);
+            if (confirmDelete) {
+                
+                alert(`"${title}"이(가) 삭제되었습니다.`);
+               
+            }
+        }
+
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get("category");
+
+        
+        const bookData = [
+            {
+                category: "도서명",
+                data: ["도서명1", "도서명2", "도서명3"],
+            },
+            {
+                category: "저자",
+                data: ["저자1", "저자2", "저자3"],
+            },
+            {
+                category: "출판사",
+                data: ["출판사1", "출판사2", "출판사3",],
+            },
+
+            {
+                category: "출판년도",
+                data: ["출판년도1", "출판년도2", "출판년도3",],
+            },
+
+            {
+                category: "ISBN",
+                data: ["ISBN1", "ISBN2", "ISBN3",],
+            },
+        ];
+
+      
+        const selectedCategoryData = bookData.find(item => item.category === category);
+
+        
+        if (selectedCategoryData) {
+            const list = document.createElement("ul");
+            selectedCategoryData.data.forEach(item => {
+                const listItem = document.createElement("li");
+                const editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.addEventListener("click", () => editBook(item));
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.addEventListener("click", () => confirmDelete(item));
+                listItem.textContent = item;
+                listItem.appendChild(editButton);
+                listItem.appendChild(deleteButton);
+                list.appendChild(listItem);
+            });
+            document.body.appendChild(list);
+        } else {
+       
+            const message = document.createElement("p");
+            message.textContent = "선택한 카테고리의 데이터를 찾을 수 없습니다.";
+            document.body.appendChild(message);
+        }
+    </script>
 </body>
 </html>
